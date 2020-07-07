@@ -29,15 +29,20 @@ main {
     width: 80%;
     height: auto;
     border: 2px solid black;
+    padding: 5px 0;
 }
 .teamBox {
     width: 30px;
     min-height: 30px;
-    border: 2px solid red;
+    padding: 1%;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: var(--club-logo);
+}
+.teamBox:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .slider {
