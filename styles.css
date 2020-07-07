@@ -1,8 +1,18 @@
+@font-face {
+    font-family: barcelona;
+    src: url(./fonts/barcelona.TTF)
+}
+@font-face {
+    font-family: valencia;
+    src: url(./fonts/valencia.otf);
+}
+
 :root {
     --club-color-primary: red;
     --club-color-secondary:white;
     --club-background-stadium: url('/stadiums/sevilla.jpg');
-    --club-logo:url('./logos/sevilla.png')
+    --club-logo:url('./logos/sevilla.png');
+    --club-font: barcelona
 }
 
 
@@ -39,6 +49,7 @@ main {
     background-size: contain;
     background-repeat: no-repeat;
     background-image: var(--club-logo);
+    border: 2px solid transparent;
 }
 .teamBox:hover {
     transform: scale(1.1);
@@ -52,6 +63,7 @@ main {
     display: flex;
     flex-direction: row;
     position: relative;
+    animation: opacity 2s ease-in-out;
 }
 .arrowLeft, .arrowRight {
     height: 20%;
@@ -106,6 +118,8 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-image:var(--club-background-stadium);
+    animation: opacity 2s ease-in-out;
+
 }
 
 .logoPng {
@@ -120,4 +134,20 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.clubName {
+    font-family: var(--club-font);
+    font-size: 50px;
+    min-height: 40px;
+    min-width: 40px;
+    position: absolute;
+    top: calc(90%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: white;
+}
 
+@keyframes opacity {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
