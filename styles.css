@@ -1,3 +1,11 @@
+:root {
+    --club-color-primary: red;
+    --club-color-secondary:white;
+    --club-background-stadium: url('/stadiums/sevilla.jpg');
+    --club-logo:url('./logos/sevilla.png')
+}
+
+
 html, 
 body,
 main {
@@ -26,4 +34,85 @@ main {
     width: 30px;
     min-height: 30px;
     border: 2px solid red;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: var(--club-logo);
 }
+
+.slider {
+    width: 80%;
+    height: 60%;
+    border: 2px solid green;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.arrowLeft, .arrowRight {
+    height: 20%;
+    width: 5%;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 0 5px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+
+}
+.arrowLeft {
+    left: 20px;
+}
+.arrowRight {
+    right: 20px;
+}
+
+.arrowLeftImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+}
+
+.arrowRightImage {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    
+}
+
+.arrowLeft:hover .arrowLeftImage {
+    transform: scale(2);
+    background: rgba(0,0,0,0.2);
+    transition: all 0.5s ease-in-out;
+}
+
+.arrowRight:hover .arrowRightImage {
+    transform: scale(2);
+    transition: all 0.5s ease-in-out;
+}
+
+.clubLogo {
+    width: 100%;
+    height: 100%;
+    border: 2px solid pink;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:var(--club-background-stadium);
+}
+
+.logoPng {
+    width: 40%;
+    height: 40%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: var(--club-logo);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
