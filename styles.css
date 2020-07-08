@@ -30,6 +30,19 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: url('/backgroundGif.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 1s ease-in-out;
+}
+.backgroundShade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.9);
 }
 .teamsBar {
     display: flex;
@@ -42,7 +55,7 @@ main {
     padding: 5px 0;
     background: transparent;
     transition: all 5s ease-in-out;
-
+    z-index: 2;
 }
 .teamBox {
     width: 30px;
