@@ -25,7 +25,7 @@ const clubs = {
         stadium:'./stadiums/barcelona.jpg',
         logo:'/logos/barcelona.png',
         font:'barcelona',
-        navColors:['#edbb00','#004d98']
+        navColors:['#a50044','#004d98']
     },
     villarreal: {
         stadium:'./stadiums/villarreal.jpg',
@@ -49,7 +49,7 @@ const clubs = {
         stadium:'./stadiums/atletico.jpg',
         logo:'/logos/atletico.png',
         font:'valencia',
-        navColors:['#272e61','#ffffff']
+        navColors:['#cb3524','#ffffff']
     },
     bilbao: {
         stadium:'./stadiums/bilbao.jpg',
@@ -140,7 +140,10 @@ for(let i=0; i<logos.length; i++) {
 }
 console.log(stadiums, logos)
 RIGHT_ARROW.addEventListener('click', ()=> {
+    if(num === logos.length) num=0
+    if(num<0) num=logos.length
     if(num !==0) document.querySelector(`.teamBox:nth-child(${num})`).style.border = ""
+  
     document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[names[num]].navColors[1]} 0%, ${clubs[names[num]].navColors[0]} 100%)`
     document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${logos[num]})`)
     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${stadiums[num]})`)
@@ -150,7 +153,17 @@ RIGHT_ARROW.addEventListener('click', ()=> {
     num+=1
 })
 LEFT_ARROW.addEventListener('click', ()=> {
+    if(num !==0) document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "";
+
+    num-=1
+    console.log(num)
+    if(num === logos.length) num=0
+    if(num<0) num=logos.length-1
+  
+   document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[names[num]].navColors[1]} 0%, ${clubs[names[num]].navColors[0]} 100%)`
     document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${logos[num]})`)
     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${stadiums[num]})`)
-    num-=1
+    document.querySelector('.clubName').style.setProperty('--club-font', `${clubs[names[num]].font}`)
+    document.querySelector('.clubName').textContent = `${names[num]}`
+    document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "2px solid black"
 })
