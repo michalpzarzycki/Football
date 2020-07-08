@@ -7,121 +7,141 @@ const clubs = {
         stadium:'/stadiums/sevilla.jpg',
         logo: '/logos/sevilla.png',
         font:'barcelona',
-        navColors: ['#ffffff','#43333']
+        navColors: ['#ffffff','#43333'],
+        player: '/players/sevilla.png'
     },
     valencia: {
         stadium:'./stadiums/valencia.jpg',
         logo:'/logos/valencia.png',
         font:'valencia',
-        navColors:['#000000','#ffffff']
+        navColors:['#000000','#ffffff'],
+        player: '/players/valencia.png'
     },
     real: {
         stadium:'./stadiums/real.jpg',
         logo:'/logos/real.png',
         font:'barcelona',
-        navColors:['#ffffff','#00529f']
+        navColors:['#ffffff','#00529f'],
+        player: '/players/real.png'
     },
     barcelona: {
         stadium:'./stadiums/barcelona.jpg',
         logo:'/logos/barcelona.png',
         font:'barcelona',
-        navColors:['#a50044','#004d98']
+        navColors:['#a50044','#004d98'],
+        player: '/players/barcelona.png'
     },
     villarreal: {
         stadium:'./stadiums/villarreal.jpg',
         logo:'/logos/villarreal.png',
         font:'barcelona',
-        navColors:['#ffe667','#005187']
+        navColors:['#ffe667','#005187'],
+        player: '/players/villarreal.png'
     },
     betis: {
         stadium:'./stadiums/betis.jpg',
         logo:'/logos/betis.png',
         font:'barcelona',
-        navColors:['#0bb363','#ffffff']
+        navColors:['#0bb363','#ffffff'],
+        player: '/players/betis.png'
     },
     alaves: {
         stadium:'./stadiums/alaves.jpg',
         logo:'/logos/alaves.png',
         font:'barcelona',
-        navColors:['#0761af','#009ad7']
+        navColors:['#0761af','#009ad7'],
+        player: '/players/alaves.png'
     },
     atletico: {
         stadium:'./stadiums/atletico.jpg',
         logo:'/logos/atletico.png',
         font:'valencia',
-        navColors:['#cb3524','#ffffff']
+        navColors:['#cb3524','#ffffff'],
+        player: '/players/atletico.png'
     },
     bilbao: {
         stadium:'./stadiums/bilbao.jpg',
         logo:'/logos/bilbao.png',
         font:'valencia',
-        navColors:['#ee2523','#000000']
+        navColors:['#ee2523','#000000'],
+        player: '/players/bilbao.png'
     },
     celta: {
         stadium:'./stadiums/celta.jpg',
         logo:'/logos/celta.png',
         font:'barcelona',
-        navColors:['#8ac3ee','#e5254e']
+        navColors:['#8ac3ee','#e5254e'],
+        player: '/players/celta.png'
     },
     eibar: {
         stadium:'./stadiums/eibar.jpg',
         logo:'/logos/eibar.png',
         font:'barcelona',
-        navColors:['#0071b9','#aa093c']
+        navColors:['#0071b9','#aa093c'],
+        player: '/players/eibar.png'
     },
     espanol: {
         stadium:'./stadiums/espanol.jpg',
         logo:'/logos/espanol.png',
         font:'valencia',
-        navColors:['#ffffff','#007fc8']
+        navColors:['#ffffff','#007fc8'],
+        player: '/players/espanol.png'
     },
     getafe: {
         stadium:'./stadiums/getafe.jpg',
         logo:'/logos/getafe.png',
         font:'barcelona',
-        navColors:['#005999','#c43a27']
+        navColors:['#005999','#c43a27'],
+        player: '/players/getafe.png'
     },
     granada: {
         stadium:'./stadiums/granada.jpg',
         logo:'/logos/granada.png',
         font:'barcelona',
-        navColors:['#ffffff','#a61b2b']
+        navColors:['#ffffff','#a61b2b'],
+        player: '/players/granada.png'
     },
     leganes: {
         stadium:'./stadiums/leganes.jpg',
         logo:'/logos/leganes.png',
         font:'valencia',
-        navColors:['#0c1f6e','#ffffff']
+        navColors:['#0c1f6e','#ffffff'],
+        player: '/players/leganes.png'
     },
     levante: {
         stadium:'./stadiums/levante.jpg',
         logo:'/logos/levante.png',
         font:'barcelona',
-        navColors:['#b4053f','#005ca5']
+        navColors:['#b4053f','#005ca5'],
+        player: '/players/levante.png'
     },
     mallorca: {
         stadium:'./stadiums/mallorca.jpg',
         logo:'/logos/mallorca.png',
         font:'valencia',
-        navColors:['#e20613','#000000']
+        navColors:['#e20613','#000000'],
+        player: '/players/mallorca.png'
     },
     osasuna: {
         stadium:'./stadiums/osasuna.jpg',
         logo:'/logos/osasuna.png',
         font:'barcelona',
-        navColors:['#0a346f','#d91a21']
+        navColors:['#0a346f','#d91a21'],
+        player: '/players/osasuna.png'
     },
     sociedad: {
         stadium:'./stadiums/sociedad.jpg',
         logo:'/logos/sociedad.png',
         font:'valencia',
-        navColors:['#ffffff','#0067b1']
+        navColors:['#ffffff','#0067b1'],
+        player: '/players/sociedad.png'
     },
     valladolid: {
         stadium:'./stadiums/valladolid.jpg',
         logo:'/logos/valladolid.png',
         font:'barcelona',
-        navColors:['#921b88','#ffffff']
+        navColors:['#921b88','#ffffff'],
+        player: '/players/valladolid.png'
     }
 }
 let names = []
@@ -147,10 +167,14 @@ RIGHT_ARROW.addEventListener('click', ()=> {
     document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[names[num]].navColors[1]} 0%, ${clubs[names[num]].navColors[0]} 100%)`
     document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${logos[num]})`)
     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${stadiums[num]})`)
+    document.querySelector('.player').style.backgroundImage = `url(${clubs[names[num]].player})`
     document.querySelector('.clubName').style.setProperty('--club-font', `${clubs[names[num]].font}`)
     document.querySelector('.clubName').textContent = `${names[num]}`
     document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "2px solid black"
     num+=1
+})
+document.querySelector('html').addEventListener('onload', () => {
+    RIGHT_ARROW.click()
 })
 LEFT_ARROW.addEventListener('click', ()=> {
     if(num !==0) document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "";
@@ -159,14 +183,13 @@ LEFT_ARROW.addEventListener('click', ()=> {
     console.log(num)
     if(num === logos.length) num=0
     if(num<0) num=logos.length-1
-    document.querySelector(".clubLogo").style.WebkitAnimationPlayState = "paused"; 
 
    document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[names[num]].navColors[1]} 0%, ${clubs[names[num]].navColors[0]} 100%)`
    document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${logos[num]})`)
     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${stadiums[num]})`)
+    document.querySelector('.player').style.backgroundImage = `url(${clubs[names[num]].player})`
     document.querySelector('.clubName').style.setProperty('--club-font', `${clubs[names[num]].font}`)
     document.querySelector('.clubName').textContent = `${names[num]}`
-    document.querySelector(".clubLogo").style.WebkitAnimationPlayState = "running"; 
 
     document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "2px solid black"
 })

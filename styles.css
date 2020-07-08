@@ -40,6 +40,9 @@ main {
     height: auto;
     border: 2px solid black;
     padding: 5px 0;
+    background: transparent;
+    transition: all 5s ease-in-out;
+
 }
 .teamBox {
     width: 30px;
@@ -64,6 +67,19 @@ main {
     flex-direction: row;
     position: relative;
     animation: opacity 2s ease-in-out;
+}
+.player {
+    background-image: url(/players/atletico.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 50%;
+    min-height: 50%;
+    position: absolute;
+    top: 76%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+
 }
 .arrowLeft, .arrowRight {
     height: 20%;
