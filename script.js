@@ -152,6 +152,10 @@ for(key in clubs) {
     stadiums.push(clubs[key].stadium)
     logos.push(clubs[key].logo)
 }
+document.querySelectorAll('.teamBox').forEach((elem, index) => {
+    elem.setAttribute('name', names[index])
+})
+
 console.log(names)
 for(let i=0; i<logos.length; i++) {
     document.querySelector(`.teamBox:nth-child(${i+1})`).style.backgroundImage = `url(${logos[i]})`
@@ -193,3 +197,19 @@ LEFT_ARROW.addEventListener('click', ()=> {
 
     document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "2px solid black"
 })
+
+
+document.querySelectorAll('.teamBox').forEach((elem, index) => elem.addEventListener('click', (e) => {
+    let target =  e.target.getAttribute('name');
+    document.querySelectorAll('.teamBox').forEach(elem => {
+        elem.style.border = "2px solid transparent"
+    })
+    document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[target].navColors[1]} 0%, ${clubs[target].navColors[0]} 100%)`
+    document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${clubs[target].logo})`)
+     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${clubs[target].stadium})`)
+     document.querySelector('.player').style.backgroundImage = `url(${clubs[target].player})`
+     document.querySelector('.clubName').style.setProperty('--club-font', `${clubs[target].font}`)
+     document.querySelector('.clubName').textContent = `${target}`
+     document.getElementsByName(`${target}`)[0].style.border = '2px solid black'
+
+}))
