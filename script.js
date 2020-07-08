@@ -171,15 +171,15 @@ RIGHT_ARROW.addEventListener('click', ()=> {
     document.querySelector(`.teamsBar`).style.background = `linear-gradient(0deg, ${clubs[names[num]].navColors[1]} 0%, ${clubs[names[num]].navColors[0]} 100%)`
     document.querySelector('.logoPng').style.setProperty('--club-logo', `url(${logos[num]})`)
     document.querySelector('.clubLogo').style.setProperty('--club-background-stadium', `url(${stadiums[num]})`)
+    document.querySelector('.clubName').style.setProperty('--club-color-primary', `${clubs[names[num]].navColors[1]}`)
+    document.querySelector('.clubName').style.setProperty('--club-color-secondary', `${clubs[names[num]].navColors[0]}`)
     document.querySelector('.player').style.backgroundImage = `url(${clubs[names[num]].player})`
     document.querySelector('.clubName').style.setProperty('--club-font', `${clubs[names[num]].font}`)
     document.querySelector('.clubName').textContent = `${names[num]}`
     document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "2px solid black"
     num+=1
 })
-document.querySelector('html').addEventListener('onload', () => {
-    RIGHT_ARROW.click()
-})
+
 LEFT_ARROW.addEventListener('click', ()=> {
     if(num !==0) document.querySelector(`.teamBox:nth-child(${num+1})`).style.border = "";
 

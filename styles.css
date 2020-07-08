@@ -154,7 +154,9 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    color: white;
+    color: var(--club-color-primary);
+    text-shadow: 0px 0px 4px var(--club-color-secondary);
+
 }
 
 @keyframes opacity {
